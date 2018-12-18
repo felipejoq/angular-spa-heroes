@@ -1,0 +1,19 @@
+<div class="media row animated fadeIn fast">
+    <img class="align-self-start mr-3 col-md-3 img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
+    <div class="media-body col-md-9">
+      <h1 class="mt-0">{{ heroe.nombre | uppercase }} <small>({{ heroe.aparicion | date:'yyyy' }})</small></h1>
+      <hr>
+      <p>{{ heroe.bio }}</p>
+      <p *ngIf="heroe.casa === 'DC'; else Marvel">
+        <img src="assets/img/dccomic.png" alt="Pertenece a la casa DC Comic">
+      </p>
+
+      <ng-template #Marvel>
+          <p>
+              <img src="assets/img/marvel.png" alt="Pertenece a la casa de Marvel">
+          </p>
+      </ng-template>
+      
+      <a class="btn btn-outline-danger btn-block" [routerLink]="['/heroes']">VOLVER</a>
+    </div>
+</div>
